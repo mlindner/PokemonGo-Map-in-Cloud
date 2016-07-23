@@ -61,7 +61,7 @@
                 "STEPS_AWAY": "${settings.stepsAway}",
                 "GMAP_KEY": "${settings.gmapKey}"
               },
-              "cmd": "-u \"${USERNAME}\" -p \"${PASSWORD}\" -l \"${LOCATION}\" -st \"${STEPS_AWAY}\" -k \"${GMAP_KEY}\" --port 8080"
+              "cmd": "-u \"${USERNAME}\" -p \"${PASSWORD}\" -l \"${LOCATION}\" -st \"${STEPS_AWAY}\" -k \"${GMAP_KEY}\" --port 80"
             }
           }
         ]
