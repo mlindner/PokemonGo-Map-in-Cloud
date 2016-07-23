@@ -54,14 +54,7 @@
             "nodeGroup": "cp",
             "docker": {
               "image": "sych74/pokemongo-map",
-              "env": {
-                "USERNAME": "${settings.username}",
-                "PASSWORD": "${settings.password}",
-                "LOCATION": "${settings.location}",
-                "STEPS_AWAY": "${settings.stepsAway}",
-                "GMAP_KEY": "${settings.gmapKey}"
-              },
-              "cmd": "-u \"${USERNAME}\" -p \"${PASSWORD}\" -l \"${LOCATION}\" -st \"${STEPS_AWAY}\" -k \"${GMAP_KEY}\" --port 80"
+              "cmd": "-u \"${settings.username}\" -p \"${settings.password}\" -l \"${settings.location}\" -st \"${settings.stepsAway}\" -k \"${settings.gmapKey}\" --port 80"
             }
           }
         ]
