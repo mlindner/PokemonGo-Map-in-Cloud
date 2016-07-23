@@ -1,0 +1,71 @@
+{
+  "jpsType": "install",
+  "application": {
+    "name": "PokemonGo Map",
+    "homepage": "https://github.com/AHAAAAAAA/PokemonGo-Map/",
+    "description": "Find all the pokemon in your area... and more!",
+    "logo": "http://goo.gl/lmccet",
+    "settings": {
+      "fields": [
+        {
+          "name": "username",
+          "caption": "Pkmn Club User",
+          "type": "string",
+          "default": "",
+          "required": "true"
+        },
+        {
+          "name": "password",
+          "caption": "Pkmn Club Password",
+          "type": "string",
+          "inputType": "password",
+          "default": "",
+          "required": "true"
+        },
+        {
+          "name": "location",
+          "caption": "Your Location",
+          "type": "string",
+          "default": "429 Castro St, San Francisco, CA 94114",
+          "required": "true"
+        },
+        {
+          "name": "stepsAway",
+          "caption": "Steps Away",
+          "type": "string",
+          "default": "10",
+          "required": "true"
+        },
+        {
+          "name": "gmapKey",
+          "caption": "Google Map API Key",
+          "type": "string",
+          "default": "AIzaSyDwvxkpEpEUzXR7qKFAQjYNmOQqkYS2NBU",
+          "required": "true"
+        }
+      ]
+    },
+    "env": {
+      "displayName": "Map Server",
+      "topology": {
+        "nodes": [
+          {
+            "cloudlets": 16,
+            "nodeGroup": "cp",
+            "docker": {
+              "image": "sych74/pokemongo-map",
+              "env": {
+                "USERNAME": "${settings.username}",
+                "PASSWORD": "${settings.password}",
+                "LOCATION": "${settings.location}",
+                "STEPS_AWAY": "${settings.stepsAway}",
+                "GMAP_KEY": "${settings.gmapKey}"
+              },
+              "cmd": "-u \"${USERNAME}\" -p \"${PASSWORD}\" -l \"${LOCATION}\" -st \"${STEPS_AWAY}\" -k \"${GMAP_KEY}\" --port 8080"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
