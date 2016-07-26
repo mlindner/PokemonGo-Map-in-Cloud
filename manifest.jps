@@ -8,19 +8,90 @@
     "settings": {
       "fields": [
         {
-          "name": "username",
-          "caption": "Pkmn Club User",
-          "type": "string",
-          "default": "",
-          "required": "true"
-        },
-        {
-          "name": "password",
-          "caption": "Pkmn Club Password",
-          "type": "string",
-          "inputType": "password",
-          "default": "",
-          "required": "true"
+          "default": "demo",
+          "type": "radio-fieldset",
+          "values": {
+            "demo" : "Default Demo Account",
+            "google": "Your Google Account",
+            "pkmclb": "Your Pkmn Club Account"
+          },
+          "name": "account",
+          "showIf": {
+            "demo": [
+              {
+                "name": "username",
+                "caption": "Google User",
+                "type": "string",
+                "inputType": "hidden",
+                "default": "pokemonemail74@gmail.com",
+                "required": "true"
+              },
+              {
+                "name": "password",
+                "caption": "Google Password",
+                "type": "string",
+                "inputType": "hidden",
+                "default": "2l2VP20Js8",
+                "required": "true"
+              },
+              {
+                "name": "auth",
+                "type": "string",
+                "inputType": "hidden",
+                "default": "google",
+                "required": "true" 
+              }
+            ],
+            "google": [
+              {
+                "name": "username",
+                "caption": "Google User",
+                "type": "string",
+                "inputType": "string",
+                "default": "",
+                "required": "true"
+              },
+              {
+                "name": "password",
+                "caption": "Google Password",
+                "type": "string",
+                "inputType": "password",
+                "default": "",
+                "required": "true"
+              },
+              {
+                "name": "auth",
+                "type": "string",
+                "inputType": "hidden",
+                "default": "google",
+                "required": "true" 
+              }
+            ],
+            "pkmclb": [
+              {
+                "name": "username",
+                "caption": "Pkmn Club User",
+                "type": "string",
+                "default": "",
+                "required": "true"
+              },
+              {
+                "name": "password",
+                "caption": "Pkmn Club Pswd",
+                "type": "string",
+                "inputType": "password",
+                "default": "",
+                "required": "true"
+              },
+              {
+                "name": "auth",
+                "type": "string",
+                "inputType": "hidden",
+                "default": "ptc",
+                "required": "true"
+              }
+            ]
+          }
         },
         {
           "name": "location",
@@ -54,7 +125,7 @@
             "nodeGroup": "cp",
             "docker": {
               "image": "sych74/pokemongo-map",
-              "cmd": "-u \"${settings.username}\" -p \"${settings.password}\" -l \"${settings.location}\" -st \"${settings.stepsAway}\" -k \"${settings.gmapKey}\" --port 80 -sd 10"
+              "cmd": "-a ${settings.auth} -u \"${settings.username}\" -p \"${settings.password}\" -l \"${settings.location}\" -st \"${settings.stepsAway}\" -k \"${settings.gmapKey}\" --port 80 -sd 10"
             }
           }
         ]
