@@ -123,6 +123,7 @@
           {
             "cloudlets": 16,
             "nodeGroup": "cp",
+            "nodeType": "docker",
             "docker": {
               "image": "sych74/pokemongo-map",
               "cmd": "-a ${settings.auth} -u \"${settings.username}\" -p \"${settings.password}\" -l \"${settings.location}\" -st \"${settings.stepsAway}\" -k \"${settings.gmapKey}\" --port 80 -sd 10"
