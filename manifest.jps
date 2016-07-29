@@ -8,40 +8,14 @@
     "settings": {
       "fields": [
         {
-          "default": "demo",
+          "default": "google",
           "type": "radio-fieldset",
           "values": {
-            "demo" : "Default Demo Account",
             "google": "Your Google Account",
             "pkmclb": "Your Pkmn Club Account"
           },
           "name": "account",
           "showIf": {
-            "demo": [
-              {
-                "name": "username",
-                "caption": "Google User",
-                "type": "string",
-                "inputType": "hidden",
-                "default": "pokemonemail74@gmail.com",
-                "required": "true"
-              },
-              {
-                "name": "password",
-                "caption": "Google Password",
-                "type": "string",
-                "inputType": "hidden",
-                "default": "2l2VP20Js8",
-                "required": "true"
-              },
-              {
-                "name": "auth",
-                "type": "string",
-                "inputType": "hidden",
-                "default": "google",
-                "required": "true" 
-              }
-            ],
             "google": [
               {
                 "name": "username",
@@ -64,7 +38,7 @@
                 "type": "string",
                 "inputType": "hidden",
                 "default": "google",
-                "required": "true" 
+                "required": "true"
               }
             ],
             "pkmclb": [
