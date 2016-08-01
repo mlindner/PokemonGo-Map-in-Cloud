@@ -9,63 +9,29 @@
       "fields": [
         {
           "default": "google",
-          "type": "radio-fieldset",
+          "type": "radiolist",
           "values": {
             "google": "Your Google Account",
-            "pkmclb": "Your Pkmn Club Account"
+            "ptc": "Your Pokemon Club Account"
           },
-          "name": "account",
-          "showIf": {
-            "google": [
-              {
-                "name": "google-username",
-                "caption": "Google User",
-                "type": "string",
-                "inputType": "string",
-                "default": "",
-                "required": "true"
-              },
-              {
-                "name": "google-password",
-                "caption": "Google Password",
-                "type": "string",
-                "inputType": "password",
-                "default": "",
-                "required": "true"
-              },
-              {
-                "name": "google-auth",
-                "type": "string",
-                "inputType": "hidden",
-                "default": "google",
-                "required": "true"
-              }
-            ],
-            "pkmclb": [
-              {
-                "name": "pkmclb-username",
-                "caption": "Pkmn Club User",
-                "type": "string",
-                "default": "",
-                "required": "true"
-              },
-              {
-                "name": "pkmclb-password",
-                "caption": "Pkmn Club Pswd",
-                "type": "string",
-                "inputType": "password",
-                "default": "",
-                "required": "true"
-              },
-              {
-                "name": "pkmclb-auth",
-                "type": "string",
-                "inputType": "hidden",
-                "default": "ptc",
-                "required": "true"
-              }
-            ]
-          }
+          "hideCaption": true,
+          "name": "auth"
+        },
+        {
+          "name": "username",
+          "caption": "User",
+          "type": "string",
+          "inputType": "string",
+          "default": "",
+          "required": "true"
+        },
+        {
+          "name": "password",
+          "caption": "Password",
+          "type": "string",
+          "inputType": "password",
+          "default": "",
+          "required": "true"
         },
         {
           "name": "location",
@@ -100,7 +66,7 @@
             "nodeType": "docker",
             "docker": {
               "image": "sych74/pokemongo-map",
-              "cmd": "-a $( [ -z \"${settings.pkmclb-username}\" ] && echo \"${settings.google-auth}\" || echo \"${settings.pkmclb-auth}\") -u $( [ -z \"${settings.pkmclb-username}\" ] && echo \"${settings.google-username}\" || echo \"${settings.pkmclb-username}\") -p $( [ -z \"${settings.pkmclb-password}\" ] && echo \"${settings.google-password}\" || echo \"${settings.pkmclb-password}\") -l \"${settings.location}\" -st \"${settings.stepsAway}\" -k \"${settings.gmapKey}\" --port 80 -sd 10"
+              "cmd": "-a \"${settings.auth}\" -u \"${settings.username}\" -p \"${settings.password}\" -l \"${settings.location}\" -st \"${settings.stepsAway}\" -k \"${settings.gmapKey}\" --port 80 -sd 10"
             }
           }
         ]
