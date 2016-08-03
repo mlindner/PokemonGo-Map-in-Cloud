@@ -14,7 +14,7 @@
             "google": "Your Google Account",
             "ptc": "Your Pokemon Club Account"
           },
-          "hideCaption": true,
+          "hideLabel": true,
           "name": "auth"
         },
         {
